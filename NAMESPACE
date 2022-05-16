@@ -1,0 +1,8 @@
+exportPattern("^[[:alpha:]]+")
+export(empirical_pval, adaptive_quantile_aggregation, fixed_quantile_aggregation, bhy_threshold,
+       bhq_threshold, cvGrace,
+       mfdr_tpp_base, mfdr_tpp_knockoff, Grace_multi_knockoff,
+       fdr_threshold, build_L1, quantile_aggregation)
+import(glmnet, lattice, Grace, snow, MonteCarlo, MASS,
+       knockoff, corpcor, miscTools, pracma,ModelMetrics)
+importFrom("stats", "pnorm", "p.adjust", "quantile")

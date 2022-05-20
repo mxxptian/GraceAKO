@@ -61,6 +61,17 @@ Y <- c(X %*% beta_true + rnorm(n, sd = sigma.error))
 
 L_1 = build_L1(L)
 
+library(dplyr)
+X = as.data.frame(X)
+std.X = X %>% mutate_all(~scale((.)%>% as.vector))
+
+Y = as.data.frame(Y)
+std.Y = Y %>% mutate_all(~scale((.)%>% as.vector))
+
+X = as.matrix(std.X)
+Y1 = as.vector(std.Y)$Y
+Y = as.vector(Y1)
+
 #conduct Grace-AKO and Grace
 
 result = Grace_multi_knockoff(X = X, Y = Y, L_1 = L_1, L = L, fdr = fdr, 
